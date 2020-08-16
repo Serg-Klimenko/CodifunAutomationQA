@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "caa7d173-a2db-47cb-816b-3a18f1d59d85",
+		"name": "Codifun",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60c37434-b373-4d20-b1f4-8e76b02299f1",
+						"exec": [
+							"pm.test(\"Check status\", function (){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/get?name=John&age=22",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John"
+						},
+						{
+							"key": "age",
+							"value": "22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "de9ee79e-5d10-4c3f-a8ff-65721fe1942c",
+						"exec": [
+							"pm.test(\"Check status\", function (){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response is JSON\", function() {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"const responseData = response.data;\r",
+							"const userName = responseData.name;\r",
+							"pm.test(\"User name is John\", function () {\r",
+							"    pm.expect(userName).to.equal('John');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"John\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/post",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/delete",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
