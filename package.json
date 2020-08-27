@@ -4,7 +4,8 @@
   "description": "",
   "main": "2plus2.test.js",
   "scripts": {
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-action": "./node_modules/.bin/jest action-ui.test.ts"
   },
   "keywords": [],
   "author": "",
