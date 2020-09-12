@@ -14,7 +14,7 @@ describe ("UI test action", () => {
         await page.click(".gNO89b");
         await page.waitForSelector("#search");
         const firstResultURL = await page.$eval(".iUh30", el => el.textContent);
-        expect(firstResultURL).toEqual("www.codifun.com");
+        expect(firstResultURL).toEqual("codifun.com");
         await browser.close();
     });
 })

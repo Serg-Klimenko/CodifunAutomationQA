@@ -18,6 +18,6 @@ describe ('Page Object UI test', () => {
         const page = await Browser.openPage(browser);
         await page.goto("https://www.google.com", {"timeout": 10000});
         await googlePage.fillAndSearch(page);
-        expect(await googlePage.getFirstResultURL(page)).toEqual("www.codifun.com");
+        expect(await googlePage.getFirstResultURL(page)).toEqual("codifun.com");
     });
 })
